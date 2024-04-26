@@ -15,8 +15,10 @@ class PeopleController < ApplicationController
       @active = true
     end
 
-    @people = Person.where(active: @active)
+    @people = Person.includes(:user, :debts, :payments).where(active: @active).paginate(page: params[:page], per_page: 30)
   end
+
+  
 
   # GET /people/search?q=a_name
   # Returns an HTML for autocomplete

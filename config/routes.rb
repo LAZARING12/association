@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
 
   # Relatório de saldo
-  get 'reports/balance'
+  get 'reports/balance', to: 'reports#balance'
   # Recursos para pagamentos
   resources :payments
   # Devise para autenticação de usuários
